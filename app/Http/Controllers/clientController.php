@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+
+class client extends Model
+{
+    protected $fillable = [
+        'firstname',
+        'lastname', 'contacts'
+    ];
+}
 
 class clientController extends Controller
 {
     public function index()
     {
-        return client::all();
+        return response()->json($clients);
     }
 
     public function show(client $client)
@@ -27,14 +36,15 @@ class clientController extends Controller
     {
         $client->update($request->all());
         
-        return response()->json($client, 200);
+        return response()->json(['message' => 'Success! client updated', 'clinet' => $client, 200]);
     }
 
     public function delete( client $client)
     {
         $client->delete();
         
-        return response()->json(null,204);
+        return response()->json(['message' => 'Delete success']);
     }
 
 }
+

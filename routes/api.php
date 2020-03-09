@@ -50,3 +50,4 @@ Route::get('client/{client}', 'clientController@show');
 Route::post('client', 'clientController@store');
 Route::put('client/{client}', 'clientController@update');
 Route::delete('client/{client}', 'clientController@delete');
+Route::post('register/{client}', 'Auth\RegisterController@register');
