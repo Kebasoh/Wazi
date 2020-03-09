@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class Client extends Migration
 {
+    protected $fillable = ['firstName', 'lastName', 'contacts'];
     /**
      * Run the migrations.
      *
@@ -13,7 +14,13 @@ class Client extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('client', function(Blueprint$table) {
+          $table->increments('id');
+          $table->string('firstName');
+          $table->string('lastName');
+          $table->string('contacts');
+        
+      });  //
     }
 
     /**
@@ -23,6 +30,6 @@ class Client extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('client');
     }
 }
