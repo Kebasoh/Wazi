@@ -14,6 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+<!-- <div id="response">    API response here</div>
+<script> fetch('api/client', {        headers: {            'x-csrf-token' : document.querySelector("meta[name='csrf-token']").getAttribute("content")        }    })    .then(function(response) {        response.json().then(function(data) {            var str = JSON.stringify(data.client);            document.getElementById('response').innerHTML = str;        });    })    .catch(function(err) {        console.log('Error: ' +  err);    });</script> -->
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
