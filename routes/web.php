@@ -11,19 +11,19 @@
 |
 */
 
-// Route::get('/', function () {
-//     //return view('welcome');
-//     return 'hello world';
-// });
-// Route::get('/', 'PagesController@index');
-// Route::get('/availability', 'PagesController@available');
-// Route::get('/create', 'PagesController@create_content');
-// Route::get('create', 'PagesController@create_content');
+Route::get('/', function () {
+    //return view('welcome');
+    return 'hello world';
+});
+Route::get('/', 'PagesController@index');
+Route::get('/availability', 'PagesController@available');
+Route::get('/create', 'PagesController@create_content');
+Route::get('create', 'PagesController@create_content');
 
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('client', function() {
 
 //     return client::all();
@@ -51,11 +51,11 @@
 //     return 204;
 // });
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+// $router->get('/', function () use ($router) {
+//     return $router->app->version();
+// });
 
-$router->group(['prefix' => 'wazi'], function () use ($router) {
+$router->group(['prefix' => 'api'], function () use ($router) {
     Route::get('client', 'clientController@index');
     Route::get('client/{client}', 'clientController@show');
     Route::post('client', 'clientController@store');
