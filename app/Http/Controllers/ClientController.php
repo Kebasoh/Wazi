@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\client;
+use App\Client;
 use Illuminate\Http\Request;
 // use Illuminate\Database\Eloquent\Model;
 
@@ -18,24 +18,24 @@ class clientController extends Controller
 {
     public function showAllClients()
     {
-        return response()->json(clients::all());
+        return response()->json(Client::all());
     }
 
     public function showOneClient($id)
     {
-        return response()->json(client::find($id));;
+        return response()->json(Client::find($id));;
     }
 
     public function store(Request $request)
     {
-        $client = client::create($request->all());
+        $client = Client::create($request->all());
 
-        return response()->json($client, 201);
+        return response()->json($Client, 201);
     }
 
     public function update(Request $request, $id)
     {
-        $client = client::findOrFail($id);
+        $client = Client::findOrFail($id);
         $client->update($request->all());
         
         return response()->json(['message' => 'Success! client updated', $client, 200]);
@@ -43,7 +43,7 @@ class clientController extends Controller
 
     public function delete( client $client)
     {
-        client::findOrFail($id)->delete();
+        Client::findOrFail($id)->delete();
         
         return response()->json(['message' => 'Delete success']);
     }

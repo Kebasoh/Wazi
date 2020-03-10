@@ -11,14 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return 'hello world';
-});
+// Route::get('/', function () {
+//     //return view('welcome');
+//     return 'hello world';
+// });
+use App\Http\Controllers\pagesController;
+
 Route::get('/', 'PagesController@index');
 Route::get('/availability', 'PagesController@available');
-Route::get('/create', 'PagesController@create_content');
-Route::get('create', 'PagesController@create_content');
+Route::get('/createc', 'PagesController@create_content');
+Route::get('/images','PagesController@imgpic');
+Route::get('/text','PagesController@mytext');
+Route::get('/video','PagesController@myvedio');
+Route::get('/audios','PagesController@myaudio');
+
+Route::post('/images','PagesController@imgpic');
+Route::post('/text','PagesController@mytext');
+Route::post('/video','PagesController@myvedio');
+Route::post('/audios','PagesController@myaudio');
+
 
 
 Auth::routes();
@@ -56,10 +67,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 // });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
-    Route::get('client', 'clientController@index');
+    Route::get('client', 'ClientController@showAllClients');
     Route::get('client/{client}', 'clientController@show');
     Route::post('client', 'clientController@store');
     Route::put('client/{client}', 'clientController@update');
     Route::delete('client/{client}', 'clientController@delete');
     Route::post('register/{client}', 'Auth\RegisterController@register');
 });
+
+
+

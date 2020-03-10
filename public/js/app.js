@@ -1,3 +1,18 @@
+$(document).ready(function() {
+  $('.nav-trigger').click(function() {
+      $('.side-nav').toggleClass('visible');
+  });
+});
+
+
+
+
+
+
+
+
+
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
