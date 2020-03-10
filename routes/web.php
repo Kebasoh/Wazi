@@ -68,11 +68,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     Route::get('client', 'ClientController@showAllClients');
-    Route::get('client/{client}', 'clientController@show');
-    Route::post('client', 'clientController@store');
-    Route::put('client/{client}', 'clientController@update');
-    Route::delete('client/{client}', 'clientController@delete');
+    Route::get('client/{client}', 'ClientController@show');
+    Route::post('client', 'ClientController@store');
+    Route::put('client/{client}', 'ClientController@update');
+    Route::delete('client/{client}', 'ClientController@delete');
     Route::post('register/{client}', 'Auth\RegisterController@register');
+
+    Route::get('appointments', 'AppointmentsController@showAllAppointments');
+    Route::get('appointments/{appointments}', 'AppointmentsController@show');
+    Route::post('appointments', 'AppointmentsController@store');
+    Route::put('appointments/{appointments}', 'AppointmentsController@update');
+    Route::delete('appointments/{appointments}', 'AppointmentsController@delete');
+    
 });
 
 
