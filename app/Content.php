@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Appointments extends Model
+class Content extends Model
 {
 
     /**
@@ -12,16 +12,10 @@ class Appointments extends Model
      *
      * @var array
      */
-    
-
     protected $fillable = [
-        'start_time', 'finish_time', 'comments', 'employee_id'
+        'content_type', 'content_title', 'content_body', 'content_author'
     ];
 
-    public function employee()
-    {
-        return $this->belongsTo('Employee');
-    }
     /**
      * The attributes excluded from the model's JSON form.
      *
