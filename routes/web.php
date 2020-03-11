@@ -35,6 +35,52 @@ Route::post('/audios','PagesController@myaudio');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('client', function() {
+
+//     return client::all();
+
+// });
+// Route:: get('client/{id}', function($id){
+//     return client::find($id);
+// });
+
+// Route::post('client', function(Request $request){
+//     return client::create ($request->all);
+    
+// });
+
+// Route:: put('client/{id}', function(Request $request,$id){
+//     $client = client::findorFail($id);
+//     $client->update($request->all());
+
+//     return $client;
+// });
+
+// Route::delete('articles/{id}', function($id){
+//     client::find($id)->delete();
+
+//     return 204;
+// });
+
+// $router->get('/', function () use ($router) {
+//     return $router->app->version();
+// });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    Route::get('client', 'ClientController@showAllClients');
+    Route::get('client/{client}', 'ClientController@show');
+    Route::post('client', 'ClientController@store');
+    Route::put('client/{client}', 'ClientController@update');
+    Route::delete('client/{client}', 'ClientController@delete');
+    Route::post('register/{client}', 'Auth\RegisterController@register');
+
+    Route::get('appointments', 'AppointmentsController@showAllAppointments');
+    Route::get('appointments/{appointments}', 'AppointmentsController@show');
+    Route::post('appointments', 'AppointmentsController@store');
+    Route::put('appointments/{appointments}', 'AppointmentsController@update');
+    Route::delete('appointments/{appointments}', 'AppointmentsController@delete');
+    
+});
 
 
 
